@@ -13,7 +13,7 @@ async def run_ocr(image):
     output = await asyncio.to_thread(
         pipeline.predict, img_np
     )
-    return str(output)
+    return output
 
 iface = gr.Interface(
     fn=run_ocr,
