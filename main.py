@@ -27,6 +27,10 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from sentence_transformers import CrossEncoder
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # =========================================================
 # CONFIG
@@ -39,7 +43,7 @@ OUTPUT_DIR = "outputs"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-GOOGLE_API_KEY = "AIzaSyASbnXZLoJPql8CAJE5Sn3sb9GNE_6cROw"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 CHUNK_SIZE = 600
 CHUNK_OVERLAP = 150

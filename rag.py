@@ -11,14 +11,16 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from sentence_transformers import CrossEncoder
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # =========================
 # CONFIG
 # =========================
 # ⚠️ SECURITY NOTE: Never hardcode API keys in production!
 # Use environment variables: export GOOGLE_API_KEY="your_key"
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyASbnXZLoJPql8CAJE5Sn3sb9GNE_6cROw")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 NOTES_FILE     = "output.txt"
 CHUNK_SIZE     = 600
 CHUNK_OVERLAP  = 150
